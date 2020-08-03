@@ -1,0 +1,30 @@
+h1{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+table {
+  display: inline-table;
+  font-family: 'Times New Roman', Times, serif;
+  width: 60%;
+  outline: 1px solid black;
+}
+
+td {
+  text-align: left;
+  padding: 2px;
+  width: 30%;
+}
+
+th {
+  text-align: center;
+  padding: 2px;
+  width: 30%;
+}
+
+tr {
+  background-color: coral;
+}
+
+#warna{
+  background-color: rgb(155, 155, 155);
+}
