@@ -1,7 +1,3 @@
-h1{
-  font-family: 'Times New Roman', Times, serif;
-}
-
 table {
   display: inline-table;
   font-family: 'Times New Roman', Times, serif;
@@ -27,4 +23,14 @@ tr {
 
 #warna{
   background-color: rgb(155, 155, 155);
+}
+
+#jam{
+  float: left;
+  margin-left: 20%;
+}
+
+#hitung{
+  float: right;
+  margin-right: 20%;
 }
