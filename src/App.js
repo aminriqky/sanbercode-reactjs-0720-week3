@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import Tugas11 from "./tugas11/UserInfo";
-import Tugas12 from "./tugas12/DuaBelas";
+import Tugas13 from "./tugas13/Lists";
 
 function App() {
   return (
     <div>
-      <Tugas11/>
-      <Tugas12/>
+      <Tugas13/>
     </div>
   );
 }

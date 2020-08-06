@@ -34,3 +34,7 @@ tr {
   float: right;
   margin-right: 20%;
 }
+
+#a{
+  background-color: unset;
+}
