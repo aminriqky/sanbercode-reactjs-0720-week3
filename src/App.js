@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Tugas13 from "./tugas13/Lists";
+import Tugas14 from "./tugas14/Hooks";
 
 function App() {
   return (
     <div>
-      <Tugas13/>
+      <Tugas14/>
     </div>
   );
 }

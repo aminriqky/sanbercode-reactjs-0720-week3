@@ -31,11 +31,13 @@ class Lists extends React.Component {
       ],
       inputName : "",
       inputHarga : "",
-      inputBerat : "",
+      inputBerat : ""
     }
     
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleDelete = this.handleDelete.bind(this);
+  this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleChange(evt){  
@@ -52,12 +54,29 @@ class Lists extends React.Component {
       }],
       inputName: "",
       inputHarga : "",
-      inputBerat : "",
+      inputBerat : ""
     })
   }
 
-  handleDelete(evt) {
-    this.setState({ [evt.target.name]: evt.target.value });
+  handleDelete(event) {
+    let index = event.target.value
+    let newdataHargaBuah = this.state.dataHargaBuah
+    newdataHargaBuah.splice(index, 1)
+
+    this.setState({dataHargaBuah: newdataHargaBuah});
+  }
+
+  handleEdit(event) {
+    let index = event.target.value;
+    let buah = this.state.dataHargaBuah[index]
+
+    this.setState({
+      inputName: buah.nama,
+      inputBerat: buah.harga,  
+      inputHarga: buah.berat, 
+      indexOfForm: index
+    });
+    console.log(event.target.value);
   }
 
   render(){
@@ -71,6 +90,7 @@ class Lists extends React.Component {
               <th id='warna'>Nama</th>
               <th id='warna'>Harga</th>
               <th id='warna'>Berat</th>
+              <th id='warna'>Tombol</th>
           </tr>
           </tbody>
           </table>
@@ -84,10 +104,8 @@ class Lists extends React.Component {
                       <Nama nama={tampil.nama}/>
                       <Harga harga={tampil.harga}/>
                       <Berat berat={tampil.berat}/>
-                  </tr>
-                  <tr id='a'>
-                    <button name="inputBerat" value={this.state.inputBerat} onDelete={this.handleDelete}>Delete</button>
-                    <button>Edit</button>
+                      <td><button name="inputName" value={this.state.inputName} onClick={this.handleDelete}>Delete</button></td>
+                      <td><button name="inputName" value={index} onClick={this.handleEdit}>Edit</button></td>
                   </tr>
               </tbody>
               </table>
@@ -95,6 +113,7 @@ class Lists extends React.Component {
               )
           })}
           <center>
+            <br></br>
               <form onSubmit={this.handleSubmit}>
                 <label>
                   Masukkan nama buah:

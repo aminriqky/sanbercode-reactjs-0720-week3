@@ -1,14 +1,15 @@
 table {
   display: inline-table;
   font-family: 'Times New Roman', Times, serif;
-  width: 60%;
+  width: 68%;
   outline: 1px solid black;
 }
 
 td {
   text-align: left;
   padding: 2px;
-  width: 30%;
+  width: 33%;
+  background-color: unset;
 }
 
 th {
