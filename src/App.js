@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
-import Tugas14 from "./tugas14/Hooks";
+import {BrowserRouter as Router} from "react-router-dom";
+import Routes from "./tugas15/Routes"
 
 function App() {
   return (
     <div>
-      <Tugas14/>
+      <Router>
+        <Routes/>
+      </Router>
     </div>
   );
 }

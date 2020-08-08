@@ -1,0 +1,33 @@
+h1{
+  text-align: center;
+}
+
+th {
+  text-align: center;
+  padding: 2px;
+  width: 30%;
+  border-bottom: 1px solid #ddd;
+}
+
+td{
+  text-align: left;
+  padding: 2px;
+  width: 33%;
+  background-color: unset;
+}
+
+table {
+  display: inline-table;
+  font-family: 'Times New Roman', Times, serif;
+  width: 68%;
+  outline: 1px solid black;
+}
+
+form{
+  text-align: center;
+}
+
+label{
+  font-weight: bold;
+  margin-right: 10px;
+}
