@@ -1,19 +1,15 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext} from "react";
 
 export const DaftarBuahContext = createContext();
 
 export const DaftarBuahProvider = props => {
-  const [buah, setBuah] = useEffect([
-        if (daftarBuah === null){
-          axios.get(`http://backendexample.sanbercloud.com/api/fruits`)
-          .then(res => {
-            setDaftarBuah(res.data.map(el=>{ return {id: el.id, name: el.name, price: el.price, weight: el.weight }} ))
-          })
-        }, [daftarBuah]
-  );
+    const [dataHargaBuah, setdataHargaBuah]  =  useState(
+        {name: "", price: "", weight: 0}
+    )
+
 
   return (
-    <DaftarBuahContext.Provider value={[buah, setBuah]}>
+    <DaftarBuahContext.Provider value={[dataHargaBuah, setdataHargaBuah]}>
       {props.children}
     </DaftarBuahContext.Provider>
   );

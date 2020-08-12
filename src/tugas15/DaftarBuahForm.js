@@ -1,14 +1,21 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useContext} from "react"
 import axios from "axios"
 import "./DaftarBuah.css"
 import {DaftarBuahContext} from "./DaftarBuahContext"
 
 const DaftarBuahForm = () => {
-  
   const [daftarBuah, setDaftarBuah] =  useState(null)
-  const [input, setInput]  =  useState({name: "", price: "", weight: 0})
   const [selectedId, setSelectedId]  =  useState(0)
   const [statusForm, setStatusForm]  =  useContext(DaftarBuahContext)
+
+  useEffect( () => {
+    if (daftarBuah === null){
+      axios.get(`http://backendexample.sanbercloud.com/api/fruits`)
+      .then(res => {
+        setDaftarBuah(res.data.map(el=>{ return {id: el.id, name: el.name, price: el.price, weight: el.weight }} ))
+      })
+    }
+  }, [daftarBuah])
   
   const handleDelete = (event) => {
     let idDataBuah = parseInt(event.target.value)
@@ -96,40 +103,6 @@ const DaftarBuahForm = () => {
 
   return(
     <>
-    <center>
-      <h1>Daftar Harga Buah</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Harga</th>
-            <th>Berat</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-
-            {
-              daftarBuah !== null && daftarBuah.map((item, index)=>{
-                return(                    
-                  <tr key={index}>
-                    <td>{index+1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>{item.weight/1000} Kg</td>
-                    <td>
-                      <button onClick={handleEdit} value={item.id}>Edit</button>
-                      &nbsp;
-                      <button onClick={handleDelete} value={item.id}>Delete</button>
-                    </td>
-                  </tr>
-                )
-              })
-            }
-        </tbody>
-      </table>
-      </center>
       {/* Form */}
       <h1>Form Daftar Harga Buah</h1>
 

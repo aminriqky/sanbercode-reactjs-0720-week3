@@ -21,7 +21,7 @@ const DaftarBuah = () => {
   const handleDelete = (event) => {
     let idDataBuah = parseInt(event.target.value)
 
-    let newdaftarBuah = daftarBuah.filter(el => el.id != idDataBuah)
+    let newdaftarBuah = daftarBuah.filter(el => el.id !== idDataBuah)
 
     axios.delete(`http://backendexample.sanbercloud.com/api/fruits/${idDataBuah}`)
     .then(res => {
